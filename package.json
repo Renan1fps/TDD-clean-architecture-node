@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Renan1fps/TDD-clean-architecture-node/issues"
   },
-  "homepage": "https://github.com/Renan1fps/TDD-clean-architecture-node#readme"
+  "homepage": "https://github.com/Renan1fps/TDD-clean-architecture-node#readme",
+  "devDependencies": {
+    "git-commit-msg-linter": "^3.2.8"
+  }
 }
