@@ -7,3 +7,4 @@ npm run lint-staged
 lint-staged
 npm run lint-staged
 yarn lint-staged
+lint-staged

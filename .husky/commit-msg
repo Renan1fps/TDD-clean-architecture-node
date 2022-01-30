@@ -3,3 +3,4 @@
 
 .git/hooks/commit-msg $1
 .git/hooks/commit-msg \"$1"
+.git/hooks/commit-msg $1
