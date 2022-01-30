@@ -1,0 +1,9 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+lint-staged
+npx lint-staged
+npm run lint-staged
+lint-staged
+npm run lint-staged
+yarn lint-staged

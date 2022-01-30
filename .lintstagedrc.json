@@ -1,6 +1,8 @@
 {
-  "*.ts": [
-    "eslint 'src/**' --fix",
-    "git add"
+  "src/**/*.+(js|json|ts|tsx)": [
+    "eslint"
+  ],
+  "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+    "prettier --write"
   ]
 }
