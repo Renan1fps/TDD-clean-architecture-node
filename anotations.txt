@@ -1,0 +1,11 @@
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> GERAL <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+ 
+ "test": "jest --passWithNoTests",
+ "test:unit": "npm run test -- --watch"  <-- nesse comando eu reaproveito o comando do "test" com o sinal --
+  e acrescento mais um comando, no caso --watch
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> JEST <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+--silent mostra só o resultado dos test e caso algum falhe, ele irá mostrar somente os que falharam. 
+--noStackTrace ele esconde a stack do erro mostrando apenas informaçoes essencias
+
