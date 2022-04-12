@@ -6,13 +6,18 @@ interface ISutTypes {
   encryptStub: Encrypter
 }
 
-const makeSut = (): ISutTypes => {
-  class EncryptStub {
+const makeEncrypter = (): Encrypter => {
+  class EncryptStub implements Encrypter {
     async encrypt (value: string): Promise<string> {
       return await new Promise(resolve => resolve('hashed_passowrd'))
     }
   }
-  const encryptStub = new EncryptStub()
+
+  return new EncryptStub()
+}
+
+const makeSut = (): ISutTypes => {
+  const encryptStub = makeEncrypter()
   const sut = new DbAccount(encryptStub)
 
   return {
