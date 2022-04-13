@@ -1,6 +1,4 @@
-import { IAccountModel } from '../../../domain/models/account'
-import { IAddAccount, IAddAcountModel } from '../../../domain/usecases/add-account'
-import { Encrypter } from '../../protocols/encrypter'
+import { IAccountModel, IAddAccount, IAddAcountModel, Encrypter } from './db-add-account-protocols'
 
 export class DbAccount implements IAddAccount {
   constructor (private readonly encrypter: Encrypter) {}
