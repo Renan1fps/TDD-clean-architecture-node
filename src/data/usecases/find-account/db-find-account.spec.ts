@@ -1,0 +1,4 @@
+describe('DbFindAccount useCase', () => {
+  test('', () => {
+  })
+})
