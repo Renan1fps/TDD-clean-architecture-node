@@ -1,10 +1,5 @@
 import { DbAccount } from './db-add-account'
-import { Encrypter } from './db-add-account-protocols'
-
-interface ISutTypes {
-  sut: DbAccount
-  encryptStub: Encrypter
-}
+import { Encrypter, IAccountModel, IAddAcountModel, IAddAccountRepository } from './db-add-account-protocols'
 
 const makeEncrypter = (): Encrypter => {
   class EncryptStub implements Encrypter {
@@ -16,13 +11,37 @@ const makeEncrypter = (): Encrypter => {
   return new EncryptStub()
 }
 
+const makeAddAccountRepository = (): IAddAccountRepository => {
+  class AddAccountRepositoryStub implements IAddAccountRepository {
+    async add (accountData: IAddAcountModel): Promise<IAccountModel> {
+      const fakeAccount: IAccountModel = {
+        id: 'valid_id',
+        email: 'valid_email',
+        name: 'valid_name',
+        password: 'hashed_passowrd'
+      }
+      return await new Promise(resolve => resolve(fakeAccount))
+    }
+  }
+
+  return new AddAccountRepositoryStub()
+}
+
+interface ISutTypes {
+  sut: DbAccount
+  encryptStub: Encrypter
+  addAccountRepositoryStub: IAddAccountRepository
+}
+
 const makeSut = (): ISutTypes => {
+  const addAccountRepositoryStub = makeAddAccountRepository()
   const encryptStub = makeEncrypter()
-  const sut = new DbAccount(encryptStub)
+  const sut = new DbAccount(encryptStub, addAccountRepositoryStub)
 
   return {
     sut,
-    encryptStub
+    encryptStub,
+    addAccountRepositoryStub
   }
 }
 
@@ -49,5 +68,21 @@ describe('DbAddAccount useCase', () => {
     }
     const promise = sut.add(accountData)
     await expect(promise).rejects.toThrow()
+  })
+
+  test('Should call AddAccountRepository with correct values', async () => {
+    const { sut, addAccountRepositoryStub } = makeSut()
+    const addSpy = jest.spyOn(addAccountRepositoryStub, 'add')
+    const accountData = {
+      email: 'valid_email@gmail.com',
+      name: 'valid_name',
+      password: 'valid_password'
+    }
+    await sut.add(accountData)
+    expect(addSpy).toHaveBeenCalledWith({
+      email: 'valid_email@gmail.com',
+      name: 'valid_name',
+      password: 'hashed_passowrd'
+    })
   })
 })
