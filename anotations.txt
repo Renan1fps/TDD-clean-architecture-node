@@ -9,3 +9,10 @@
 --silent mostra só o resultado dos test e caso algum falhe, ele irá mostrar somente os que falharam. 
 --noStackTrace ele esconde a stack do erro mostrando apenas informaçoes essencias
 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Código <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+* const account = await this.addAccountRepository.add(Object.assign({}, accountData, {
+      password: hashPassword
+    })) -> O Object.assign cria um novo objeto, o terceiro parametro me deixa modificar uma prop
+           e o primeiro argumento se passado um {} me diz que vou criar um objeto novo com tudo que tinha
+           no objeto anterior (segundo argumento) e se no terceiro argumento se passar um uma prop que já exista ele vai substituir.
