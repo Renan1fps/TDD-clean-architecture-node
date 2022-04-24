@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/Renan1fps/TDD-clean-architecture-node#readme",
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
     "@types/jest": "^27.4.0",
     "@types/node": "^16.11.11",
     "@types/validator": "^13.7.2",
@@ -42,6 +43,7 @@
     "typescript": "^4.5.5"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "validator": "^13.7.0"
   }
 }
