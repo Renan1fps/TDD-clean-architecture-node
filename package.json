@@ -22,8 +22,10 @@
   },
   "homepage": "https://github.com/Renan1fps/TDD-clean-architecture-node#readme",
   "devDependencies": {
+    "@shelf/jest-mongodb": "^2.2.1",
     "@types/bcrypt": "^5.0.0",
     "@types/jest": "^27.4.0",
+    "@types/mongodb": "^4.0.7",
     "@types/node": "^16.11.11",
     "@types/validator": "^13.7.2",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
@@ -44,6 +46,7 @@
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "mongodb": "^4.5.0",
     "validator": "^13.7.0"
   }
 }
