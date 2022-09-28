@@ -1,4 +1,0 @@
-describe('DbFindAccount useCase', () => {
-  test('', () => {
-  })
-})
